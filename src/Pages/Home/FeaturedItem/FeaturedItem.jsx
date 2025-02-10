@@ -5,7 +5,7 @@ import './FeaturedItem.css'
 
 const FeaturedItem = () => {
     return (
-        <section className='featured-item  text-white'>
+        <section className='featured-item bg-fixed text-white'>
             <div className='pt-8'>
             <SectionTitle
             subHeading={"Cheak It Out"}
@@ -20,8 +20,8 @@ const FeaturedItem = () => {
                 <div className='md:ml-12 space-y-1'>
                     <p>March 28, 2025</p>
                     <h2 className='text-xl'>Where Can I Get Some ?</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus vel provident voluptates repudiandae eveniet quo commodi, beatae alias vitae natus sunt amet veniam sapiente! Vero delectus id distinctio repudiandae perferendis placeat non, neque natus magni. Impedit tempore quaerat, distinctio accusantium nam possimus totam reprehenderit iure officia! Fugiat minima exercitationem debitis.</p>
-                    <button className='btn btn-outline'>Order Now</button>
+                    <p className='pb-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus vel provident voluptates repudiandae eveniet quo commodi, beatae alias vitae natus sunt amet veniam sapiente! Vero delectus id distinctio repudiandae perferendis placeat non, neque natus magni. Impedit tempore quaerat, distinctio accusantium nam possimus totam reprehenderit iure officia! Fugiat minima exercitationem debitis.</p>
+                    <button className='btn btn-outline border-0 border-b-4  border-gray-700 text-white'>Order Now</button>
                 </div>
             </div>
         </section>
