@@ -17,10 +17,13 @@ const Navbar = () => {
           <Link to={'/menu'}>Our Menu</Link>
       </li>
       <li>
-          <Link to={'/shop'}>Our Shop</Link>
+          <Link to={'/order/salad'}>Our Item</Link>
       </li>
       <li>
-          <Link to={'/'}>Home</Link>
+          <Link to={'/login'}>Login</Link>
+      </li>
+      <li>
+          <Link to={'/register'}>Register</Link>
       </li>
     </>
   );

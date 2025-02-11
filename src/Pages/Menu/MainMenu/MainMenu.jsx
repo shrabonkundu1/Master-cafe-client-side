@@ -11,7 +11,12 @@ import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 import MenuCategory from '../MenuCategory/MenuCategory';
 
 const MainMenu = () => {
-    const [menu] = useMenu();
+    const [menu,loading] = useMenu();
+
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+   
     const dessert = menu.filter(item => item.category === "dessert");
     const soup = menu.filter(item => item.category === "soup");
     const pizza = menu.filter(item => item.category === "pizza");
@@ -30,16 +35,16 @@ const MainMenu = () => {
            <MenuCategory items={offered}></MenuCategory>
            </div>
            <div className='mb-16'>
-            <MenuCategory img={dessertImg} items={dessert} title={"DESSERT"} description={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, ipsa dolor. Voluptatem, dolore ullam necessitatibus odit voluptas ipsum consequatur culpa?"}></MenuCategory>
+            <MenuCategory img={dessertImg} items={dessert} title={"dessert"} description={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, ipsa dolor. Voluptatem, dolore ullam necessitatibus odit voluptas ipsum consequatur culpa?"}></MenuCategory>
            </div>
            <div className='mb-16'>
-            <MenuCategory img={pizzaImg} items={pizza} title={"Pizza"} description={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, ipsa dolor. Voluptatem, dolore ullam necessitatibus odit voluptas ipsum consequatur culpa?"}></MenuCategory>
+            <MenuCategory img={pizzaImg} items={pizza} title={"pizza"} description={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, ipsa dolor. Voluptatem, dolore ullam necessitatibus odit voluptas ipsum consequatur culpa?"}></MenuCategory>
            </div>
            <div className='mb-16'>
-            <MenuCategory img={soupImg} items={soup} title={"Soup"} description={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, ipsa dolor. Voluptatem, dolore ullam necessitatibus odit voluptas ipsum consequatur culpa?"}></MenuCategory>
+            <MenuCategory img={soupImg} items={soup} title={"soup"} description={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, ipsa dolor. Voluptatem, dolore ullam necessitatibus odit voluptas ipsum consequatur culpa?"}></MenuCategory>
            </div>
            <div className='mb-16'>
-            <MenuCategory img={SaladImg} items={salad} title={"Salad"} description={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, ipsa dolor. Voluptatem, dolore ullam necessitatibus odit voluptas ipsum consequatur culpa?"}></MenuCategory>
+            <MenuCategory img={SaladImg} items={salad} title={"salad"} description={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, ipsa dolor. Voluptatem, dolore ullam necessitatibus odit voluptas ipsum consequatur culpa?"}></MenuCategory>
            </div>
         </div>
     );
