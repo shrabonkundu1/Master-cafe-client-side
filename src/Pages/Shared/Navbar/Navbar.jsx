@@ -1,30 +1,66 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { MdOutlineShoppingCartCheckout } from "react-icons/md";
+import UseCart from "../../../Hooks/UseCart";
 
 const Navbar = () => {
+  const { user, logOutUser } = useContext(AuthContext);
+  const [cart] = UseCart()
+  const handleLogOut = () => {
+    logOutUser()
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const navLinks = (
     <>
       <li>
-          <Link to={'/'}>Home</Link>
+        <Link to={"/"}>Home</Link>
       </li>
       <li>
-          <Link to={'/ContactUs'}>Contact Us</Link>
+        <Link to={"/ContactUs"}>Contact Us</Link>
       </li>
       <li>
-          <Link to={'/Dashboard'}>Dashboard</Link>
+        <Link to={"/Dashboard"}>Dashboard</Link>
       </li>
       <li>
-          <Link to={'/menu'}>Our Menu</Link>
+        <Link to={"/menu"}>Our Menu</Link>
       </li>
       <li>
-          <Link to={'/order/salad'}>Our Item</Link>
+        <Link to={"/order/salad"}>Our Item</Link>
       </li>
+      {/* <li> */}
+        {/* <Link to={"/secret"}>Our secret</Link> */}
+      {/* </li> */}
       <li>
-          <Link to={'/login'}>Login</Link>
+        <Link to={"/dashboard/cart"}>
+          <div className="indicator">
+            <span className="indicator-item text-xs badge badge-secondary mb-5">{cart.length}+</span>
+            <MdOutlineShoppingCartCheckout size={30}/>
+            </div>
+        </Link>
       </li>
-      <li>
-          <Link to={'/register'}>Register</Link>
-      </li>
+
+      {user ? (
+        <>
+          <img className="w-12 h-12 rounded-full" src={user.photoURL} alt="" />
+          {/* <span>{user.displayName}</span> */}
+          <button onClick={handleLogOut} className="btn btn-ghost ">
+            Log Out
+          </button>
+        </>
+      ) : (
+        <>
+          <li>
+            <Link to={"/login"}>Login</Link>
+          </li>
+          <li>
+            <Link to={"/register"}>Register</Link>
+          </li>
+        </>
+      )}
     </>
   );
   return (
@@ -56,10 +92,9 @@ const Navbar = () => {
         </div>
         <a className="md:pl-10 text-3xl font-Dancing ">Master Cafe</a>
       </div>
-      <div className="navbar-end hidden lg:flex font-bold">
-        <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+      <div className="navbar-end hidden items-center lg:flex font-bold">
+        <ul className="menu menu-horizontal items-center px-1">{navLinks}</ul>
       </div>
-    
     </div>
   );
 };
