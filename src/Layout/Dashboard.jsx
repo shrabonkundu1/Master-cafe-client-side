@@ -14,11 +14,12 @@ import { FaEarDeaf } from "react-icons/fa6";
 import { GrAdd } from "react-icons/gr";
 import { IoMdContact } from "react-icons/io";
 import { NavLink, Outlet } from "react-router-dom";
+import UseAdmin from "../Hooks/UseAdmin";
 
 const Dashboard = () => {
 
   // Todo get admin value from the database : 
-  const isAdmin = true;
+  const [isAdmin] = UseAdmin();
   // const isAdmin = true;
 
   return (
