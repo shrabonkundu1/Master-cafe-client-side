@@ -21,7 +21,6 @@ const Home = () => {
             <div className='my-28 md:w-7/12 mx-auto'><Testimonials></Testimonials></div>
             
 
-            This is HOme
         </div>
     );
 };
